@@ -1,0 +1,41 @@
+.gpthub-topbar-container {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    padding: 24px;
+    align-items: center;
+    width: 100%;
+    border-radius: 20px;
+    background: var(--noble-black-600, rgba(26, 29, 33, 0.80));
+    position: relative;
+}
+
+.gpthub-topbar-container > .topbar-option {
+    position: absolute;
+    right: 24px;
+}
+
+.gpthub-topbar-tab {
+    display: flex;
+    align-items: center;
+    margin-left: 24px;
+}
+
+.gpthub-topbar-tab > span {
+    padding: 0px 8px 0px 8px;
+    filter: drop-shadow(0px 4px 6px rgba(111, 224, 59, 0.16)) drop-shadow(0px 10px 15px rgba(182, 240, 156, 0.16));
+}
+
+.gpthub-category-btn > g > path {
+    stroke: #B6F09C;
+}
+
+.gpthub-topbar-tab > .gpthub-category {
+    color: white;
+    margin: 0px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.15px;
+    padding-right: 8px;
+}

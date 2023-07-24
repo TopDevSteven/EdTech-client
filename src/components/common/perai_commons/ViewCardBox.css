@@ -1,0 +1,65 @@
+.perai-viewcard {
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+    color: #9B9C9E;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -1px;
+    border-radius: 12px;
+    border-top: 1px solid var(--glass-stroke, rgba(255, 255, 255, 0.08));
+    background: var(--glass-fill, linear-gradient(145deg, rgba(215, 237, 237, 0.16) 0%, rgba(204, 235, 235, 0.00) 100%));
+    padding-top: 26px;
+    padding-bottom: 21px;
+    margin-bottom: 48px;
+}
+
+.perai-viewcard > .perai-viewcard-topic {
+    width: 28%;
+    margin: 0px;
+}
+
+.perai-viewcard > .perai-viewcard-typeicon {
+    width: 5%;
+    margin: 0px;
+}
+
+.perai-viewcard > .perai-viewcard-typelabel {
+    width: 21%;
+    margin: 0px;
+}
+
+.perai-viewcard > .perai-viewcard-status {
+    display: inline-flex;
+    /* width: 21%; */
+    padding: 8px 24px;
+    margin: 0px;
+    margin-right: 10%;
+    border-radius: 12px;
+    background: var(--stem-green-500, #B6F09C);
+    color: var(--day-blue-900, #0C1132);
+    cursor: pointer;
+}
+
+.perai-viewcard > .perai-viewcard-status:active {
+    background: var(--stem-green-500, #86ec57);
+}
+
+.perai-viewcard > .perai-viewcard-date {
+    margin: 0px;
+    width: 15%;
+}
+
+.perai-viewcard > .perai-viewcard-edit {
+    margin-right: 10px;
+}
+
+.perai-viewcard-delete {
+    cursor: pointer;
+}
+
+.perai-viewcard-delete:hover > svg > g > g path {
+    fill: black;
+}

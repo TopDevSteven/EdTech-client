@@ -1,0 +1,29 @@
+.gpthub-selectcard-container {
+    width: 100%;
+    height: calc(100vh - 300px);
+    overflow-y: auto;
+}
+
+.gpthub-selectcard-container > div {
+    color: #FFF;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -1px;
+}
+
+.gpthub-selectcard-container > div > span > svg {
+    width: 30px;
+    height: 30px;
+}
+
+.gpthub-selectcard-container > div > p {
+    color: #A8A8A8;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.667px;
+}
+

@@ -1,0 +1,15 @@
+.workarea-container {
+    width: 100%;
+    margin: 12px 12px 12px 0px;
+    border-radius: 24px;
+    height: calc(100vh - 24px);
+}
+
+.sidebar-container {
+    width: 312px;
+    height: calc(100vh - 24px);
+    border-radius: 20px;
+    background: rgba(26, 29, 33, 0.80);
+    margin: 12px;
+    max-height: 942px;
+}

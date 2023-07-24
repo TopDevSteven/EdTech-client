@@ -1,0 +1,25 @@
+.range-container {
+    position: relative;
+}
+
+.range-title {
+    font-size: 14px;
+    color: #9B9C9E;
+    text-align: center;
+    font-weight: bold;
+}
+
+.range-item {
+    cursor: pointer;
+    height: 70px;
+    background: linear-gradient(145deg, rgba(215, 237, 237, 0.16) 0%, rgba(204, 235, 235, 0.00) 100%);
+    border-radius: 10px;
+    color: white;
+    margin: 5px;
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    border-top: 1px solid var(--glass-stroke, rgba(255, 255, 255, 0.08));
+}

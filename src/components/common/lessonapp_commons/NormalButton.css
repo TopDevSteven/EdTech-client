@@ -1,0 +1,32 @@
+.normalbtn-container {
+    width: 262px;
+    margin-bottom: 8px;
+}
+
+.normalbtn-container> .normalbtn {
+    border: none;
+    border-radius: 12px;
+    border-top: 1px solid var(--glass-stroke, rgba(255, 255, 255, 0.08));
+    background: var(--glass-fill, linear-gradient(145deg, rgba(215, 237, 237, 0.16) 0%, rgba(204, 235, 235, 0.00) 100%));
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0.15px;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    padding: 12px;
+    text-align: left;
+    color: var(--noble-black-200, #CDCECF);
+}
+
+.lesson-icon {
+    margin-left: 8px;
+}
+
+.normalbtn-container > .normalbtn.active {
+    border-radius: 12px;
+    background: var(--gradients-green-blue-day-blue-600, linear-gradient(225deg, #3045C9 0%, #65BEDA 45.31%, #9AD37F 100%));
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: var(--noble-black-600, rgba(26, 29, 33, 0.80));
+}

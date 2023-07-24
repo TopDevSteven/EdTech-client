@@ -1,0 +1,47 @@
+.gpthub-topbar-btn {
+
+}
+
+.gpthub-topbar-btn > .gpthub-topbar-btn-wrapper {
+    display: flex;
+    width: auto;
+    height: 52px;
+    text-align: left;
+    border-radius: 12px;
+    border: none;
+    align-items: center;
+    border-top: 1px solid var(--glass-stroke, rgba(255, 255, 255, 0.08));
+    background: var(--glass-fill, linear-gradient(145deg, rgba(215, 237, 237, 0.16) 0%, rgba(204, 235, 235, 0.00) 100%));
+    color: var(--noble-black-200, #CDCECF);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.15px;
+    margin-right: 1px;
+}
+
+.gpthub-topbar-btn > .gpthub-topbar-btn-wrapper.active {
+    border-top: 1px solid var(--glass-stroke, rgba(255, 255, 255, 0.08));
+    background: var(--gradients-green-blue-day-blue-500, linear-gradient(225deg, #4D62E5 0%, #87DDEE 45.31%, #B6F09C 100%));
+    color: #28272A;
+}
+
+.gpthub-topbar-btn > button > .gpthub-topbar-icon >svg {
+    width: 20px;
+    height: 20px;
+    margin: 0px 17px 0px 17px;
+}
+
+.gpthub-topbar-btn > button > .allow-icon {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.gpthub-topbar-btn > .gpthub-topbar-btn-wrapper.active > .allow-icon > svg > path {
+    stroke: #28272A;
+}
+
+.gpthub-topbar-btn > .gpthub-topbar-btn-wrapper.active > .gpthub-topbar-icon {
+    stroke: #28272A;
+}

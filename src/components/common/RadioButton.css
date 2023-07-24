@@ -1,0 +1,12 @@
+.radio-btn-container {
+    border-radius: 50%;
+    border: 1px solid;
+    cursor: pointer;
+}
+
+.radio-btn-checked {
+    width: 100%;
+    height: 100%;
+    background-color: #B6F09C;
+    border-radius: 50%;
+}

@@ -1,0 +1,34 @@
+.exambooking-category-container {
+    width: 100%;
+}
+
+.exambooking-category-header {
+    margin-left: 15%;
+    margin-top: 75px;
+    margin-bottom: 15px;
+}
+
+.exambooking-category-header > h1 {
+    color: var(--noble-black-0, #FFF);
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px; /* 128.571% */
+}
+
+.exambooking-category-header > p {
+    color: var(--noble-black-300, #9B9C9E);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+    letter-spacing: 0.15px;
+}
+
+.exambooking-category-section {
+    margin-top: 31px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 70%;
+    margin-left: 15%;
+}

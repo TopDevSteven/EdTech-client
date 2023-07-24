@@ -1,0 +1,139 @@
+.profile-container {
+    color: white;
+    /* position: absolute;
+    right: 50%;
+    top:40% */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.profile-content {
+    text-align: center;
+    width: 911px;
+    height: 472px;
+    border-radius: 16px;
+    border-top: 1px solid var(--glass-stroke, rgba(255, 255, 255, 0.08));
+    background: #363A3D;
+    box-shadow: 0px 8px 12px 0px rgba(255, 255, 255, 0.04) inset, 0px 24px 64px -16px rgba(0, 0, 0, 0.24), 16px 24px 64px -24px rgba(255, 255, 255, 0.04) inset;
+    position: relative;
+}
+
+.profile-header > h1 {
+    color: var(--noble-black-0, #FFF);
+    text-align: center;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px; /* 128.571% */
+    margin-top: 44px;
+}
+
+.profile-icon {
+    margin-top: 23px;
+    width: 90%;
+    margin-left: 5%;
+    height: 162px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: #1A1D21;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-avatar-wrapper {
+    margin-left: 30px;
+    position: relative;
+}
+.profile-avatar-wrapper > span {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+
+.profile-avatar-wrapper > .profile-avatar{
+    width: 88px;
+    height: 88px;
+    border-radius: 20px;
+    background-color: var(lightgray 50% / cover no-repeat);
+}
+
+.profile-btn {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-left: 60px;
+}
+
+.profile-btn > .lessonbtn-container {
+    width: 181px;
+}
+
+.profile-content >.close-icon {
+    position: absolute;
+    right: 10px;
+    top: 7px;
+}
+
+.profile-infor {
+    margin-top: 34px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.profile-infor > div > h1 {
+    color: #FFF;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+    letter-spacing: 0.15px;
+    text-align: left;
+    margin: 0px;
+}
+
+.profile-infor > div > p {
+    color: #FFF;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 200% */
+    letter-spacing: 0.15px;
+    text-align: left;
+    margin: 0px;
+}
+
+.profile-infor > div> a {
+    text-decoration: none;
+    color: var(--stem-green-500, #B6F09C);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px; /* 150% */
+    letter-spacing: 0.15px;
+    text-align: left;
+}
+
+.logout-btn {
+    display: inline-flex;
+    height: 48px;
+    padding: 8px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    outline: none;
+    border: none;
+    border-radius: 12px;
+    background: var(--stem-green-500, #B6F09C);
+}

@@ -1,0 +1,33 @@
+
+.peraicategory-container {
+    margin-top: 35px;
+}
+.peraicategory-header {
+    max-width: 750px;
+    margin: auto;
+}
+
+.peraicategory-header > h1 {
+    color: var(--noble-black-0, #FFF);
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px; /* 128.571% */
+}
+
+.peraicategory-header > p {
+    color: var(--noble-black-300, #9B9C9E);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+    letter-spacing: 0.15px;
+}
+
+.peraicategory-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+}
+
+

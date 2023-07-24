@@ -1,0 +1,42 @@
+.gpthub-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.gpthub-category-header {
+    text-align: center;
+}
+
+.gpthub-category-container {
+    margin-top: 10px;
+    margin-bottom: 59px;
+}
+
+.gpthub-category-header > h1 {
+    color: var(--noble-black-0, #FFF);
+/* Heading/M/Bold */
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 36px;
+    margin: 16px 0px 16px 0px;
+
+}
+
+.gpthub-category-header > p {
+    color: var(--noble-black-300, #9B9C9E);
+    text-align: center;
+/* Body/L/Medium */
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    margin: auto;
+    margin-bottom: 0px;
+    width: 70%;
+}
+
+.gpthubcategory-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}

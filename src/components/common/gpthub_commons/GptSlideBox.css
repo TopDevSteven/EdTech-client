@@ -1,0 +1,39 @@
+.gptslidebox-wrapper {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 5%;
+    /* height: 100%; */
+}
+
+.gptslidebox {
+    width: 90%;
+    align-self: stretch;
+    border-radius: 20px;
+    background: var(--noble-black-600, rgba(26, 29, 33, 0.80));
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.gptslidebox > h1 {
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+}
+
+.gptslidebox > p {
+    color: #FFF;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: 24px; /* 150% */
+    letter-spacing: 0.15px;
+}
+
+.slidebox-line {
+    background: rgba(26, 29, 33, 0.80);
+    height: 1px;
+}

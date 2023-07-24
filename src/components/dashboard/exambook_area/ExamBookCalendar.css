@@ -1,0 +1,58 @@
+
+.exambookcalendar-header {
+    color: var(--noble-black-0, #FFF);
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px;
+    margin-left: 83px;
+    margin-top: 20px;
+    margin-bottom: 16px;
+}
+
+.exambookcalendar-content {
+    color: var(--noble-black-300, #9B9C9E);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+    letter-spacing: 0.15px;
+    margin-left: 83px;
+    margin-bottom: 50px;
+}
+
+.book-btn {
+    display: inline-flex;
+    height: 48px;
+    padding: 8px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    outline: none;
+    border: none;
+    border-radius: 12px;
+    background: var(--stem-green-500, #B6F09C);
+    
+}
+
+.bookbtn-container {
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.book-btn:hover {
+    background: var(--stem-green-500, #89e45f);
+}
+
+.examinput-container {
+    display: flex;
+    justify-content: center;
+}
+
+.examinput-container > .messageinput-container{
+    width: 700px;
+    bottom: 18px;
+}

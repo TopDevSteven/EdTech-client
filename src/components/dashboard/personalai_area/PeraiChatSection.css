@@ -1,0 +1,12 @@
+.peraichat-container {
+    width: 100%;
+}
+
+.peraichat-container> div > h1 {
+    color: var(--noble-black-0, #FFF);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px; /* 133.333% */
+    margin: 60px 0px 0px 41px;
+}

@@ -1,0 +1,5 @@
+.messagehistory-container {
+    width: 100%;
+    height: 65vh;
+    overflow-y: auto;
+}

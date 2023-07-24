@@ -1,0 +1,8 @@
+.perai-topbar-btn-container {
+    display: flex;
+    width: 400px;
+}
+
+.perai-topbar-btn-container > div {
+    margin: 10px 0px 29px 17px;
+}

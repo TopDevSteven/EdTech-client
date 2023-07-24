@@ -1,0 +1,112 @@
+.styleselect-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.styleselect-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly
+}
+
+.styleselect-wrapper > div {
+    margin-top: 32px;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.group-icon {
+    fill: none;
+    width: 53px;
+    height: 53px;
+    text-align: center;
+    align-items: center;
+    font-weight: bold;
+    padding: 14px 14px;
+    border-radius: 56px;
+    border-top: 1px solid var(--glass-stroke, rgba(255, 255, 255, 0.08));
+    background: var(--glass-modal, rgba(26, 29, 33, 0.96));
+}
+
+.depth-icon {
+    filter: drop-shadow(0px 4px 6px rgba(182, 240, 156, 0.16)) drop-shadow(0px 10px 15px rgba(182, 240, 156, 0.16));
+}
+
+.learningstyle-icon {
+    box-shadow: 0px 0px 64px 0px rgba(130, 219, 247, 0.16);
+    filter: drop-shadow(0px 4px 6px rgba(130, 219, 247, 0.16)) drop-shadow(0px 10px 15px rgba(130, 219, 247, 0.16));
+}
+
+.communicstyle-icon {
+    filter: drop-shadow(0px 4px 6px rgba(189, 154, 248, 0.16)) drop-shadow(0px 10px 15px rgba(189, 154, 248, 0.16));
+    box-shadow: 0px 0px 64px 0px rgba(189, 154, 248, 0.16);
+}
+
+.tonestyle-icon {
+    box-shadow: 0px 0px 64px 0px rgba(255, 209, 71, 0.16);
+    filter: drop-shadow(0px 4px 6px rgba(255, 209, 71, 0.16)) drop-shadow(0px 10px 15px rgba(255, 209, 71, 0.16));
+}
+
+.reasonf-icon {
+    box-shadow: 0px 0px 64px 0px rgba(255, 209, 71, 0.16);
+    filter: drop-shadow(0px 4px 6px rgba(255, 209, 71, 0.16)) drop-shadow(0px 10px 15px rgba(255, 209, 71, 0.16));
+}
+
+.depth-icon path{
+    stroke: #B6F09C;
+}
+
+.learningstyle-icon path {
+    stroke: #82DBF7;
+}
+
+.communicstyle-icon path {
+    stroke: #BD9AF8;
+}
+
+.tonestyle-icon path{
+    stroke: #FFD147;
+}
+
+.reasonf-icon path {
+    stroke: #FFD147;
+}
+
+.depth-label {
+    color: #FFF;
+    text-align: center;
+    /* Body/XL/SemiBold */
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.15px;
+    margin: 16px 0px 16px 0px;
+}
+
+.styles-header {
+    text-align: center;
+}
+
+.styles-header > h1 {
+    color: var(--noble-black-0, #FFF);
+/* Heading/M/Bold */
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 36px;
+}
+
+.styles-header > p {
+    color: var(--noble-black-300, #9B9C9E);
+    text-align: center;
+/* Body/L/Medium */
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    margin-bottom: 0px;
+}
