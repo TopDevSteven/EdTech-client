@@ -31,6 +31,7 @@ function App() {
 
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
+  const [isLoading, setIsLoading] = useState(false)
 
   return (
       <div className='App'>
@@ -42,7 +43,8 @@ function App() {
         >
           <MessageContext.Provider
             value={{
-              messageHistory, setMessageHistory
+              messageHistory, setMessageHistory,
+              isLoading, setIsLoading
             }}
           >
             <Routes>

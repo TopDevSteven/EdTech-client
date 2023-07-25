@@ -2,12 +2,13 @@ import React, { useContext, useState } from "react";
 import BotMessage from "../../common/BotMessage";
 import UserMessage from "../../common/UserMessage";
 import { LessonContext } from "./LessonArea";
+import { MessageContext } from "../../../App";
 import "./ChatUI.css"
 
 
 const ChatUI = () => {
     const {messageHistory, setMessageHistory} = useContext(LessonContext);
-    console.log(messageHistory)
+    const {isLoading} = useContext(MessageContext)
     
     return (
         <div className="messagehistory-container">
@@ -15,6 +16,9 @@ const ChatUI = () => {
             {/* <UserMessage /> */}
             {
                 messageHistory.map((item, idx) => item.user == 'User'?<UserMessage key={idx} question={item.text}/> : <BotMessage key={idx} respond={item.text}/>)
+            }
+            {
+                isLoading?<BotMessage respond="Loading..."/>: <></>
             }
         </div>
     );

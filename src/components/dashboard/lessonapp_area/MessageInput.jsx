@@ -5,6 +5,7 @@ import NormalButton from "../../common/lessonapp_commons/NormalButton";
 import "./MessageInput.css";
 import { LessonContext } from "./LessonArea";
 import { useAuth } from "../../../auth/auth";
+import { MessageContext } from "../../../App";
 
 const commendStyles = ["Plannned", "Start", "Continue", "Test"];
 const commendMethod = ["/plan", "/start", "/continue", "/test"];
@@ -14,6 +15,7 @@ const MessageInput = ({ activetab }) => {
   const [selectedMethod, setSelectedMethod] = useState("/plan");
   const { userMessage, setUserMessage, messageHistory, setMessageHistory } =
     useContext(LessonContext);
+  const {setIsLoading} = useContext(MessageContext);
 
   const handleChangeMethod = (idx) => {
     setSelectedButton(idx);
@@ -25,12 +27,14 @@ const MessageInput = ({ activetab }) => {
   const handleSendMessage = async () => {
     if (activetab !== "topbar-tab1") {
       try {
-
+        setIsLoading(true)
+        if (selectedButton === 0) {
+          setMessageHistory([])
+        }
         setMessageHistory((messageHistory) => [
           ...messageHistory,
           { user: "User", text: userMessage },
         ]);
-
         const response = await fetch("/api/lesson/learning", {
           method: "POST",
           headers: {
@@ -41,7 +45,7 @@ const MessageInput = ({ activetab }) => {
           body: JSON.stringify({
             messages: [
               ...messageHistory
-                .filter((item, idx) => idx >= messageHistory.length - 2)
+                .filter((item, idx) => idx == 1)
                 .map((item) => ({
                   role: item.user === 'Bot' ? 'user' : 'assistant',
                   content: item.text
@@ -52,7 +56,7 @@ const MessageInput = ({ activetab }) => {
         });
   
         if (response.ok) {
-
+          setIsLoading(false)
           const respond = await response.json()
           setMessageHistory((messageHistory) => [
             ...messageHistory,
@@ -60,6 +64,7 @@ const MessageInput = ({ activetab }) => {
           ]);
 
         } else {
+          setIsLoading(false)
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
   

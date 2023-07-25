@@ -6,7 +6,6 @@ import { LessonContext } from "../dashboard/lessonapp_area/LessonArea";
 const BotMessage = ({respond}) => {
     const { eduStyle, setEduStyle } = useContext(LessonContext);
     const muliRespond = respond.split("\n")
-
     return (
         <div className="botmessage-container">
             <img src={BotIcon}/>
