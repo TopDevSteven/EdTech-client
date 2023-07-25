@@ -26,7 +26,7 @@ const GptHubBotMessage = ({respond, type, endpoint}) => {
                     />
                     : endpoint === 'presentation'
                     ? <GptSlideBox item={respond}/>
-                    : <></>
+                    : <p>{respond}</p>
                     
                 }
             </div>

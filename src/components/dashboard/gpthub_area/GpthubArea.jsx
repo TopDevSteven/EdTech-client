@@ -16,14 +16,13 @@ const gpthubEndpoints = [
 ]
 
 const GpthubArea = ({gpthubcategory, handleGpthubcategory}) => {
-
     const {token, csrfToken} = useAuth();
     const [query, setQuery] = useState("")
     const navigate = useNavigate()
     const handleChangeQuery = (message) => {
         setQuery(message)
     }
-    const {setMessageHistory} = useContext(MessageContext);
+    const {setIsLoading, setMessageHistory} = useContext(MessageContext);
     const data = {query}
 
     const handleSendQuery = async () => {
@@ -38,6 +37,7 @@ const GpthubArea = ({gpthubcategory, handleGpthubcategory}) => {
             ]
         }))
         navigate(`/userdashboard/gpt_hub/chats`)
+        setIsLoading(true)
         const res = await fetch(`/api/gpt_hub/chat/${gpthubEndpoints[gpthubcategory]}`, {
             method: 'POST',
             headers: {
@@ -49,6 +49,7 @@ const GpthubArea = ({gpthubcategory, handleGpthubcategory}) => {
         })
 
         if (res.ok) {
+            setIsLoading(false)
             const messages = await res.json()
             setMessageHistory(messageHistory => ({
                 ...messageHistory,
@@ -61,6 +62,8 @@ const GpthubArea = ({gpthubcategory, handleGpthubcategory}) => {
                     }
                 ]
             }))
+        } else {
+            setIsLoading(false)
         }
     }
 

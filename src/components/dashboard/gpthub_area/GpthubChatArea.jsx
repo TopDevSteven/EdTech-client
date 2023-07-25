@@ -5,6 +5,7 @@ import "./GpthubChatArea.css"
 import { useContext } from "react";
 import { MessageContext } from "../../../App";
 import GptSlideBox from "../../common/gpthub_commons/GptSlideBox";
+import BotMessage from "../../common/BotMessage";
 
 const gpthubEndpoints = [
     'coding',
@@ -14,25 +15,22 @@ const gpthubEndpoints = [
 ]
 
 const GpthubChatArea =  ({id}) => {
-    const {messageHistory} = useContext(MessageContext);
+    const {messageHistory, isLoading} = useContext(MessageContext);
 
     console.log(messageHistory)
 
     return (
         <div className="gpthub-selectcard-container">
-            {/* <GptSlideBox order={1} title='type of turtle' content='there are a lot of turtles'/> */}
+
                 {
                     messageHistory[gpthubEndpoints[id]]?.map((item, idx) =>
                     item.user == 'USER' ? <UserMessage key={idx} question={item.content} />
                                         : <GptHubBotMessage respond={item.content} endpoint={gpthubEndpoints[id]} type={item.type}/>
                     )
                 }
-            {/* {
-                messageHistory[gpthubEndpoints[id]]?.map((item, idx) =>
-                    item.user == 'USER' ? <UserMessage key={idx} question={item.content} />
-                                        : <GptHubBotMessage key={idx} endpoint={gpthubEndpoints[id]} respond={item.content} type={item.type}/>
-                )
-            } */}
+                {
+                    isLoading? <GptHubBotMessage respond="Loading..." endpoint="blog" type="python"/>: <></>
+                }
         </div>
     );
 };
