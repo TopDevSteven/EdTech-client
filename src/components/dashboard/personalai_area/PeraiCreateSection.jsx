@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./PeraiCreateSection.css"
 import { useState } from "react";
 import {ReactComponent as UploadIcon} from "../../../assets/icons/perai_category_icons/upload.svg";
 import { useAuth } from "../../../auth/auth";
 import NormalButton from "../../common/lessonapp_commons/NormalButton";
+import { MessageContext } from "../../../App";
 
 const PeraiCreateSection = () => {
     const [fileName, setFileName] = useState('Choose a file');
     const [file, setFile] = useState();
     const [topic, setTopic] = useState("")
     const {token, csrfToken} = useAuth();
+    const {isLoading, setIsLoading} = useContext(MessageContext)
     const now = new Date();
 
     const handleFileChange = (event) => {
@@ -37,6 +39,7 @@ const PeraiCreateSection = () => {
                 } else if (fileType.toUpperCase() === "CSV") {
                     formData.append('type', 'CSV')
                 }
+                setIsLoading(true)
                 const res = await fetch(`/api/personal_ai/chat/create`, {
                   method: 'POST',
                   headers: {
@@ -50,6 +53,9 @@ const PeraiCreateSection = () => {
                     setFile(null)
                     setFileName("Choose a file")
                     setTopic("")
+                    setIsLoading(false);
+                } else {
+                    setIsLoading(false);
                 }
             }
         }
@@ -82,6 +88,9 @@ const PeraiCreateSection = () => {
             </div>
             <div className="perai_train_btn">
                 <NormalButton label="Train" onClick={handleUpload}/>
+                {
+                    isLoading?<p>Training...</p>:<></>
+                }
             </div>
         </div>
     )

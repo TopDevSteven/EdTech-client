@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./PeraiChatSection.css"
 import PerBotMessage from "../../common/perai_commons/PerBotMessage";
 import UserMessage from "../../common/UserMessage";
+import { MessageContext } from "../../../App";
 
 const PeraiChatSection = ({topic , message}) => {
+    const {isLoading} = useContext(MessageContext)
+
     return (
         <div className="peraichat-container">
             <div>
@@ -15,6 +18,9 @@ const PeraiChatSection = ({topic , message}) => {
                     item.user === 'USER' ? <UserMessage key={idx} question={item.content} />
                                         : <PerBotMessage key={idx} respond={item.content} />
                     ))
+                }
+                {
+                    isLoading? <PerBotMessage respond="Loading..."/> : <></>
                 }
             </div>
         </div>

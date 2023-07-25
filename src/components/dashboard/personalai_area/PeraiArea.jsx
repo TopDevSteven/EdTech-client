@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import PeraiTopbar from "./PeraiTopbar";
 import PeraiCategorySection from "./PeraiCategorySection";
 import PeraiViewSection from "./PeraiViewSection";
 import PeraiCreateSection from "./PeraiCreateSection";
 import MessageInputBox from "../../common/MessageInputBox";
+import { MessageContext } from "../../../App";
 import { useAuth } from "../../../auth/auth";
 import "./PeraiArea.css"
 
@@ -13,6 +14,7 @@ const PeraiArea = () => {
     const [query, setQuery] = useState("");
     const [topic, setTopic] = useState("");
     const [message, setMessage] = useState({});
+    const {setIsLoading} = useContext(MessageContext)
 
     const handleTopic = (content) => {
         setTopic(content);
@@ -33,6 +35,7 @@ const PeraiArea = () => {
             setMessage(message => {
                 return {...message, [topic]: message[topic] ? [...message[topic], {user: 'USER', content: query}]: [{user: 'USER', content: query}]}
             })
+            setIsLoading(true)
             const res = await fetch(`/api/personal_ai/chat/doc`, {
                 method: 'POST',
                 headers: {
@@ -44,10 +47,13 @@ const PeraiArea = () => {
               })
   
               if (res.ok) {
+                setIsLoading(false)
                   const response = await res.json()
                   setMessage(message => {
                     return {...message, [topic]: message[topic] ? [...message[topic], {user: 'BOT', content: response.message}]: [{user: 'BOT', content: response.message}]}
                     })
+              } else {
+                setIsLoading(false)
               }
         }
     }
