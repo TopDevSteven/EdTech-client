@@ -16,13 +16,15 @@ const gpthubEndpoints = [
 const GpthubChatArea =  ({id}) => {
     const {messageHistory} = useContext(MessageContext);
 
+    console.log(messageHistory)
+
     return (
         <div className="gpthub-selectcard-container">
             {/* <GptSlideBox order={1} title='type of turtle' content='there are a lot of turtles'/> */}
                 {
                     messageHistory[gpthubEndpoints[id]]?.map((item, idx) =>
                     item.user == 'USER' ? <UserMessage key={idx} question={item.content} />
-                                        : <GptSlideBox item={item.content}/>
+                                        : <GptHubBotMessage respond={item.content} endpoint={gpthubEndpoints[id]} type={item.type}/>
                     )
                 }
             {/* {

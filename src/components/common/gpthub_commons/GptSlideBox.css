@@ -1,8 +1,10 @@
 .gptslidebox-wrapper {
-    width: 90%;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin: 5%;
+    justify-content: start;
+    justify-items: center;
     /* height: 100%; */
 }
 
@@ -17,7 +19,7 @@
 
 .gptslidebox > h1 {
     color: #FFF;
-    font-size: 14px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 800;
     line-height: 24px;
@@ -26,7 +28,7 @@
 
 .gptslidebox > p {
     color: #FFF;
-    font-size: 10px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 100;
     line-height: 24px; /* 150% */

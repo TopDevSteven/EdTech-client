@@ -7,6 +7,7 @@ import "./ChatUI.css"
 
 const ChatUI = () => {
     const {messageHistory, setMessageHistory} = useContext(LessonContext);
+    console.log(messageHistory)
     
     return (
         <div className="messagehistory-container">

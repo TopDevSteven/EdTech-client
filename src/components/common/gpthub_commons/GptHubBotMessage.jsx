@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import BotIcon from "../../../assets/icons/Avatar.png";
 import { CopyBlock, dracula } from "react-code-blocks";
+import GptSlideBox from "./GptSlideBox";
 import "./GptHubBotMessage.css"
 
 const GptHubBotMessage = ({respond, type, endpoint}) => {
@@ -24,9 +25,7 @@ const GptHubBotMessage = ({respond, type, endpoint}) => {
                         // onClick={handleClick}
                     />
                     : endpoint === 'presentation'
-                    ? <pre>
-                        hello
-                    </pre>
+                    ? <GptSlideBox item={respond}/>
                     : <></>
                     
                 }

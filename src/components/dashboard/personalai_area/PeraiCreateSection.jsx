@@ -29,8 +29,14 @@ const PeraiCreateSection = () => {
         formData.append('time', now.toISOString().split('T')[0]);
         if (topic !== "" && file) {
             const fileType = fileName.substring(fileName.length - 3);
-            if (fileType.toUpperCase() === "PDF"){
-                formData.append('type', 'PDF');
+            if (fileType.toUpperCase() === "PDF" || fileType.toUpperCase() === "OCX" || fileType.toUpperCase() === "CSV"){
+                if (fileType.toUpperCase() === "PDF") {
+                    formData.append('type', 'PDF');
+                } else if (fileType.toUpperCase() === "OCX") {
+                    formData.append('type', 'DOC');
+                } else if (fileType.toUpperCase() === "CSV") {
+                    formData.append('type', 'CSV')
+                }
                 const res = await fetch(`/api/personal_ai/chat/create`, {
                   method: 'POST',
                   headers: {
@@ -70,7 +76,7 @@ const PeraiCreateSection = () => {
                         <p className="filename">Selected file: {fileName}</p>
                         : <p className="filename">Upload Document</p>
                     }
-                    <p className="browse">File formats: PDF, Doc, CSV</p>
+                    <p className="browse">File formats: PDF, DOCX, CSV</p>
                     <p>{fileName}</p>
                 </label>
             </div>

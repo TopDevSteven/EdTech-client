@@ -12,7 +12,7 @@ const BotMessage = ({respond}) => {
             <img src={BotIcon}/>
             <div>
                 <h1>Ed Tech</h1>
-                {muliRespond.map((item, idx) => <pre key={idx}>{item}</pre>)}
+                {muliRespond.map((item, idx) => <pre key={idx} style={{textWrap: 'balance'}}>{item}</pre>)}
                 <strong>{eduStyle["Depth"]}/ {eduStyle["Learning Style"]}/ {eduStyle["Communication Style"]}/ {eduStyle["Tone Style"]}/ {eduStyle["Reasoning Framework"]}</strong>
             </div>
         </div>

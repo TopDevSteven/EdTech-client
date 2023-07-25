@@ -4,6 +4,7 @@ import { ReactComponent as MessageSendIcon } from "../../../assets/icons/paper-p
 import NormalButton from "../../common/lessonapp_commons/NormalButton";
 import "./MessageInput.css";
 import { LessonContext } from "./LessonArea";
+import { useAuth } from "../../../auth/auth";
 
 const commendStyles = ["Plannned", "Start", "Continue", "Test"];
 const commendMethod = ["/plan", "/start", "/continue", "/test"];
@@ -18,92 +19,96 @@ const MessageInput = ({ activetab }) => {
     setSelectedButton(idx);
     setSelectedMethod(commendMethod[idx]);
   };
-
+  
+  const {token, csrfToken} = useAuth();
+  
   const handleSendMessage = async () => {
-    if (activetab != "topbar-tab1") {
-      // const res = await fetch(`/api/personal_ai/chat/doc`, {
-      //   method: 'POST',
-      //   headers: {
-      //   'Content-Type': 'application/json',
-      //     Authorization: `Bearer ${token}`,
-      //     'X-CSRFToken': csrfToken
-      //   },
-      //   body: JSON.stringify(data)
-      // })
+    if (activetab !== "topbar-tab1") {
+      try {
+
+        setMessageHistory((messageHistory) => [
+          ...messageHistory,
+          { user: "User", text: userMessage },
+        ]);
+
+        const response = await fetch("/api/lesson/learning", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+            'X-CSRFToken': csrfToken
+          },
+          body: JSON.stringify({
+            messages: [
+              ...messageHistory
+                .filter((item, idx) => idx >= messageHistory.length - 2)
+                .map((item) => ({
+                  role: item.user === 'Bot' ? 'user' : 'assistant',
+                  content: item.text
+                })),
+              { role: "user", content: `${selectedMethod} ${userMessage}` },
+            ],
+          }),
+        });
+  
+        if (response.ok) {
+
+          const respond = await response.json()
+          setMessageHistory((messageHistory) => [
+            ...messageHistory,
+            { user: "Bot", text: respond['message'] },
+          ]);
+
+        } else {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+  
+        // const rawResult = await response.text();
+        // let temp = "";
+        // // split the raw response by '}{' to handle multiple JSON objects in one string
+        // const jsonStrs = rawResult.split('}{').map((str, index, arr) => {
+        //   if (index !== 0) str = '{' + str;
+        //   if (index !== arr.length - 1) str = str + '}';
+        //   return str;
+        // });
+        // // iterate over each JSON string, parse it, and extract the content
+        // jsonStrs.forEach(jsonStr => {
+        //   try {
+        //     const data = JSON.parse(jsonStr);
+        //     const content = data?.choices[0]?.delta?.content || "";
+        //     temp = temp + content;
+        //   } catch (e) {
+        //     console.error(e);
+        //   }
+        // });
+
+  
+        // setMessageHistory((prevMessageHistory) => {
+        //   const updatedMessageHistory = [...prevMessageHistory];
+  
+        //   // Check if the last message was from the Bot
+        //   if (
+        //     updatedMessageHistory.length > 0 &&
+        //     updatedMessageHistory[updatedMessageHistory.length - 1].user === "Bot"
+        //   ) {
+        //     // Update the last Bot message
+        //     updatedMessageHistory[updatedMessageHistory.length - 1].text = temp;
+        //   } else {
+        //     // If the last message was not from the Bot, add a new Bot message
+        //     updatedMessageHistory.push({ user: "Bot", text: temp });
+        //   }
+  
+        //   return updatedMessageHistory;
+        // });
+  
+  
+        setUserMessage("");
+      } catch (error) {
+        console.error("Error sending the message:", error);
+        // Handle error as needed
+      }
     }
-  }
-
-  // const handleSendMessage = async () => {
-  //   if (activetab != "topbar-tab1") {
-  //     const xhr = new XMLHttpRequest();
-  //     xhr.open("POST", "/api/query/", true);
-  //     xhr.setRequestHeader("Content-Type", "application/json");
-  //     // Get the user_id from cookies
-  //     const user_id = document.cookie.replace(/(?:(?:^|.*;\s*)user_id\s*=\s*([^;]*).*$)|^.*$/, "$1");
-
-  //     // Set the user_id as a cookie header
-  //     xhr.setRequestHeader("Cookie", `user_id=${user_id}`);
-
-  //     xhr.onprogress = () => {
-  //       const rawResult = xhr.responseText;
-  //       let temp = "";
-  //       // split the raw response by '}{' to handle multiple JSON objects in one string
-  //       const jsonStrs = rawResult.split('}{').map((str, index, arr) => {
-  //           if (index !== 0) str = '{' + str;
-  //           if (index !== arr.length - 1) str = str + '}';
-  //           return str;
-  //       });
-  //       // iterate over each JSON string, parse it, and extract the content
-  //       jsonStrs.forEach(jsonStr => {
-  //           try {
-  //               const data = JSON.parse(jsonStr);
-  //               const content = data?.choices[0]?.delta?.content || "";
-  //               temp = temp + content;
-  //           } catch (e) {
-  //               console.error(e);
-  //           }
-  //       });
-
-  //       setMessageHistory((prevMessageHistory) => {
-  //         const updatedMessageHistory = [...prevMessageHistory];
-
-  //         // Check if the last message was from the Bot
-  //         if (
-  //           updatedMessageHistory.length > 0 &&
-  //           updatedMessageHistory[updatedMessageHistory.length - 1].user ===
-  //             "Bot"
-  //         ) {
-  //           // Update the last Bot message
-  //           updatedMessageHistory[updatedMessageHistory.length - 1].text =
-  //           temp;
-  //         } else {
-  //           // If the last message was not from the Bot, add a new Bot message
-  //           updatedMessageHistory.push({ user: "Bot", text: temp });
-  //         }
-
-  //         return updatedMessageHistory;
-  //       });
-  //     };
-
-  //     const body = JSON.stringify({
-  //       messages: [
-  //         ...messageHistory.filter((item, idx) => idx < 2).map((item) => ({
-  //           role: item.user === 'User' ? 'user' : 'assistant',
-  //           content: item.text
-  //         })),
-  //         { role: "user", content: `${selectedMethod} ${userMessage}` },
-  //       ],
-  //     });
-  //     xhr.send(body);
-
-  //     setMessageHistory([
-  //       ...messageHistory,
-  //       { user: "User", text: userMessage },
-  //     ]);
-
-  //     setUserMessage("");
-  //   }
-  // };
+  };
 
   return (
     <div className="submit-container">

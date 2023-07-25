@@ -29,7 +29,7 @@ const PeraiArea = () => {
 
     const handleChatDoc = async () => {
         if (selectedBtn === 0 && topic != "") {
-            const data = {query: query}
+            const data = {query: query, topic: topic}
             setMessage(message => {
                 return {...message, [topic]: message[topic] ? [...message[topic], {user: 'USER', content: query}]: [{user: 'USER', content: query}]}
             })
