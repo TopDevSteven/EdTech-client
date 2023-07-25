@@ -8,6 +8,7 @@ import { MessageContext } from "../../../App";
 
 const PeraiCreateSection = () => {
     const [fileName, setFileName] = useState('Choose a file');
+    const [success, setSuccess] = useState(null);
     const [file, setFile] = useState();
     const [topic, setTopic] = useState("")
     const {token, csrfToken} = useAuth();
@@ -54,6 +55,8 @@ const PeraiCreateSection = () => {
                     setFileName("Choose a file")
                     setTopic("")
                     setIsLoading(false);
+                    const respond = await res.json()
+                    setSuccess(respond.message)
                 } else {
                     setIsLoading(false);
                 }
@@ -89,11 +92,11 @@ const PeraiCreateSection = () => {
             <div className="perai_train_btn">
                 <NormalButton label="Train" onClick={handleUpload}/>
                 {
-                    isLoading?<p>Training...</p>:<></>
+                    isLoading?<p className="train_status">Training...</p >: success ?<p className="train_status">Training Success</p>: success === false ?<p className="train_status">Training Failed</p>: <></>
                 }
             </div>
         </div>
     )
 }
 
-export default PeraiCreateSection;
+export default PeraiCreateSection;;

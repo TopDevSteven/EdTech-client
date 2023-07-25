@@ -89,3 +89,12 @@
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     color: var(--noble-black-600, rgba(26, 29, 33, 0.80));
 }
+
+.train_status {
+    color: var(--noble-black-300, #9B9C9E);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+    letter-spacing: 0.15px;
+}
